@@ -13,9 +13,15 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Unit Tests') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean test'
+            }
+        }
+
+        stage('Package Application') {
+            steps {
+                sh 'mvn package -DskipTests'
             }
         }
 
