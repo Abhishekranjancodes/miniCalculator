@@ -1,0 +1,10 @@
+---
+- name: Deploy Calculator
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Pull the latest image from Docker Hub
+      shell: "docker pull {{ docker_user }}/minicalculator:latest"
+
+    - name: Clean up dangling images to save disk space
+      shell: "docker image prune -f"
