@@ -49,4 +49,16 @@ pipeline {
                     }
                 }
     }
+    post {
+            success {
+                mail to: 'ranjan.abhishek8809@gmail.com',
+                     subject: "SUCCESS: MiniCalculator Build #${env.BUILD_NUMBER}",
+                     body: "Maalik, pipeline kaam kr rha hai! The new features are tested, built, and deployed.\n\nCheck the build here: ${env.BUILD_URL}"
+            }
+            failure {
+                mail to: 'ranjan.abhishek8809@gmail.com',
+                     subject: "FAILED: MiniCalculator Build #${env.BUILD_NUMBER}",
+                     body: "Are maalik wo thoda sa galti ho gyi. Please check the logs.\n\nCheck the build here: ${env.BUILD_URL}"
+            }
+        }
 }
