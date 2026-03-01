@@ -25,4 +25,11 @@ public class calculatorTest {
     public void testDivision() {
         assertEquals(2.0, calculator.division(6.0, 3.0), "6 / 3 should be equal to 2.0");
     }
+
+    @Test
+    public void testSquareRoot() {
+        assertEquals(2.0, calculator.squareRoot(4.0), "Square root of 4 should be equal to 2.0");
+        assertEquals(3.0, calculator.squareRoot(9.0), "Square root of 9 should be equal to 3.0");
+        assertEquals(4.0, calculator.squareRoot(16.0), "Square root of 16 should be equal to 4.0");
+    }
 }
