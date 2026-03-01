@@ -3,17 +3,9 @@ import java.util.Scanner;
 
 public class calculator {
 
-    public static double addition(double a, double b) {
-        return a + b;
-    }
-
-    public static double subtraction(double a, double b) {
-        return a - b;
-    }
-
-    public static double multiplication(double a, double b) {
-        return a * b;
-    }
+    public static double addition(double a, double b) { return a + b; }
+    public static double subtraction(double a, double b) { return a - b; }
+    public static double multiplication(double a, double b) { return a * b; }
 
     public static double division(double a, double b) {
         if (b == 0) {
@@ -21,14 +13,36 @@ public class calculator {
         }
         return a / b;
     }
-    public static double squareRoot(double a) {
-        return Math.sqrt(a);
+
+    public static double squareRoot(double a) { return Math.sqrt(a); }
+    
+    public static double factorial(double a) {
+        if (a < 0) {
+            throw new IllegalArgumentException("\nError: Negative number ka factorial nahi hota!");
+        }
+        long fact = 1;
+        for (int i = 1; i <= (int) a; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    public static double naturalLog(double a) {
+        if (a <= 0) {
+            throw new IllegalArgumentException("\nError: Log zero ya negative numbers ke liye undefined hai");
+        }
+        return Math.log(a);
+    }
+
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
     }
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         int choice;
+
         do {
             System.out.println("\nJo aadesh ho maalik aapka!");
             System.out.println("1. Addition");
@@ -36,60 +50,56 @@ public class calculator {
             System.out.println("3. Multiplication");
             System.out.println("4. Division");
             System.out.println("5. Square Root");
-            System.out.println("6. Exit");
+            System.out.println("6. Factorial ");
+            System.out.println("7. Natural Logarithm ");
+            System.out.println("8. Power ");
+            System.out.println("9. Exit");
             System.out.print("Choose an operation: ");
 
             choice = scanner.nextInt();
 
-            if (choice >= 1 && choice <= 5) {
-                double num=0;
-                double num1=0;
-                double num2=0;
-                if (choice == 5){
+            if (choice >= 1 && choice <= 8) {
+
+                double num = 0, num1 = 0, num2 = 0;
+
+                if (choice == 5 || choice == 6 || choice == 7) {
                     System.out.print("Number: ");
                     num = scanner.nextDouble();
-                }
-                else {
-                    System.out.print("First number: ");
+                } else {
+                    System.out.print("First number (or base): ");
                     num1 = scanner.nextDouble();
 
-                    System.out.print("Second number: ");
+                    System.out.print("Second number (or exponent): ");
                     num2 = scanner.nextDouble();
                 }
+
                 try {
                     double result = 0;
 
                     switch (choice) {
-                        case 1:
-                            result = addition(num1, num2);
-                            break;
-                        case 2:
-                            result = subtraction(num1, num2);
-                            break;
-                        case 3:
-                            result = multiplication(num1, num2);
-                            break;
-                        case 4:
-                            result = division(num1, num2);
-                            break;
-                        case 5:
-                            result = squareRoot(num);
-                            break;
+                        case 1: result = addition(num1, num2); break;
+                        case 2: result = subtraction(num1, num2); break;
+                        case 3: result = multiplication(num1, num2); break;
+                        case 4: result = division(num1, num2); break;
+                        case 5: result = squareRoot(num); break;
+                        case 6: result = factorial(num); break;
+                        case 7: result = naturalLog(num); break;
+                        case 8: result = power(num1, num2); break;
                     }
 
                     System.out.println("\nAnswer: " + result);
 
-                } catch (ArithmeticException e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 
-            } else if (choice == 6) {
+            } else if (choice == 9) {
                 System.out.println("Tata bye bye gya!");
             } else {
                 System.out.println("Ye operation valid nhi hai,Kripya phir se koshish karein");
             }
 
-        } while (choice != 6);
+        } while (choice != 9);
 
         scanner.close();
     }
