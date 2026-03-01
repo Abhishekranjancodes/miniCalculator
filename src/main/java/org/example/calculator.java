@@ -42,16 +42,19 @@ public class calculator {
             choice = scanner.nextInt();
 
             if (choice >= 1 && choice <= 5) {
+                double num=0;
+                double num1=0;
+                double num2=0;
                 if (choice == 5){
                     System.out.print("Number: ");
-                    double num1 = scanner.nextDouble();
+                    num = scanner.nextDouble();
                 }
                 else {
                     System.out.print("First number: ");
-                    double num1 = scanner.nextDouble();
+                    num1 = scanner.nextDouble();
 
                     System.out.print("Second number: ");
-                    double num2 = scanner.nextDouble();
+                    num2 = scanner.nextDouble();
                 }
                 try {
                     double result = 0;
@@ -70,7 +73,7 @@ public class calculator {
                             result = division(num1, num2);
                             break;
                         case 5:
-                            result = squareRoot(num1);
+                            result = squareRoot(num);
                             break;
                     }
 
