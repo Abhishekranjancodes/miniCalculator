@@ -15,8 +15,7 @@ public class calculator {
     }
 
     public static double squareRoot(double a) { return Math.sqrt(a); }
-
-    // --- NEW FUNCTIONS ---
+    
     public static double factorial(double a) {
         if (a < 0) {
             throw new IllegalArgumentException("\nError: Negative number ka factorial nahi hota!");
