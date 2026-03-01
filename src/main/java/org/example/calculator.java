@@ -42,13 +42,17 @@ public class calculator {
             choice = scanner.nextInt();
 
             if (choice >= 1 && choice <= 5) {
+                if (choice == 5){
+                    System.out.print("Number: ");
+                    double num1 = scanner.nextDouble();
+                }
+                else {
+                    System.out.print("First number: ");
+                    double num1 = scanner.nextDouble();
 
-                System.out.print("First number: ");
-                double num1 = scanner.nextDouble();
-
-                System.out.print("Second number: ");
-                double num2 = scanner.nextDouble();
-
+                    System.out.print("Second number: ");
+                    double num2 = scanner.nextDouble();
+                }
                 try {
                     double result = 0;
 
