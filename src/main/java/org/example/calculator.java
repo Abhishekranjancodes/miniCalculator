@@ -21,6 +21,9 @@ public class calculator {
         }
         return a / b;
     }
+    public static double squareRoot(double a) {
+        return Math.sqrt(a);
+    }
 
     public static void main(String[] args) {
 
@@ -32,12 +35,13 @@ public class calculator {
             System.out.println("2. Subtraction");
             System.out.println("3. Multiplication");
             System.out.println("4. Division");
-            System.out.println("5. Exit");
+            System.out.println("5. Square Root");
+            System.out.println("6. Exit");
             System.out.print("Choose an operation: ");
 
             choice = scanner.nextInt();
 
-            if (choice >= 1 && choice <= 4) {
+            if (choice >= 1 && choice <= 5) {
 
                 System.out.print("First number: ");
                 double num1 = scanner.nextDouble();
@@ -61,6 +65,9 @@ public class calculator {
                         case 4:
                             result = division(num1, num2);
                             break;
+                        case 5:
+                            result = squareRoot(num1);
+                            break;
                     }
 
                     System.out.println("\nAnswer: " + result);
@@ -69,13 +76,13 @@ public class calculator {
                     System.out.println(e.getMessage());
                 }
 
-            } else if (choice == 5) {
+            } else if (choice == 6) {
                 System.out.println("Tata bye bye gya!");
             } else {
                 System.out.println("Ye operation valid nhi hai,Kripya phir se koshish karein");
             }
 
-        } while (choice != 5);
+        } while (choice != 6);
 
         scanner.close();
     }
