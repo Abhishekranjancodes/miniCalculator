@@ -40,7 +40,7 @@ public class calculator {
             System.out.print("Choose an operation: ");
 
             choice = scanner.nextInt();
-
+            //comment
             if (choice >= 1 && choice <= 5) {
                 double num=0;
                 double num1=0;
